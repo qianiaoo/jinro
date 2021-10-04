@@ -5,6 +5,7 @@
         left-text=""
         left-arrow
         @click-left="onClickLeft"
+
         @click-right="onClickRight"
     />
     <van-grid :border="false" square>
@@ -39,7 +40,7 @@ export default {
         },
         {
           "pic": "https://img01.yzcdn.cn/vant/apple-3.jpg",
-          "name": '田中',
+          "name": '田2中',
           "id": "2",
         },
         {
