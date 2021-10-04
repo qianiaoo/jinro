@@ -10,28 +10,32 @@
     />
     <van-grid :border="false" square>
 
-      <van-grid-item v-for="item in playerList" :key='item.id' @click="onClickPlayer(item.id)">
+      <van-grid-item v-for="item in playerList" :key='item.id' @click="onClickPlayer(item.name)">
         <van-image :src="item.pic"/>
         {{ item.name }}
       </van-grid-item>
     </van-grid>
     <jinro-normal-waitting v-if="gameStatus===0" :player-list="playerList"></jinro-normal-waitting>
-
+    <jinro-normal-daytime :dead-people="deadPeople" :to-player="toPlayer" :player-list="playerList" v-if="gameStatus%3===1"></jinro-normal-daytime>
+    <jinro-normal-night  :player-list="playerList" v-if="gameStatus%3===2"></jinro-normal-night>
   </div>
 </template>
 
 <script>
 import {Toast} from "vant";
 import JinroNormalWaitting from "@/components/JinroNormalWaitting";
+import JinroNormalNight from "@/components/JinroNormalNight";
+import JinroNormalDaytime from "@/components/JinroNormalDaytime";
 
 export default {
   name: "JinroNormal",
-  components: {JinroNormalWaitting},
+  components: {JinroNormalDaytime, JinroNormalNight, JinroNormalWaitting},
   data() {
     return {
-
+      toPlayer: '',
+      deadPeople: [],
       title: "ゲームまち",
-      gameStatus: 0,
+      gameStatus: 1,
       playerList: [
         {
           "pic": "https://img01.yzcdn.cn/vant/apple-3.jpg",
@@ -94,11 +98,15 @@ export default {
       Toast('按钮');
     },
     onClickPlayer(val) {
-      Toast(val)
+      if (this.gameStatus % 3 === 1) {
+        // console.log(val);
+        this.toPlayer = val;
+      } else if (this.gameStatus % 3 === 2) {
+        this.toPlayer = val;
+      }
+      Toast(this.toPlayer);
     },
-    checkJob(val) {
-      console.log(val);
-    },
+
 
   },
 }

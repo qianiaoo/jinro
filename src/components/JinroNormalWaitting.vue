@@ -91,6 +91,9 @@ export default {
         this.showPicker = true;
       }
     },
+    checkJob(val) {
+      console.log(val);
+    },
   },
   props:["playerList"]
 }
