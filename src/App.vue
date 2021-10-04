@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" style="height: 100%" >
     <router-view/>
     <van-tabbar v-model="active">
       <van-tabbar-item icon="wap-home" to="/"></van-tabbar-item>

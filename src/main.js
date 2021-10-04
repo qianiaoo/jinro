@@ -16,13 +16,13 @@ import {
   TabbarItem,
   Picker,
   Popup,
-  Form, NavBar, Stepper, CheckboxGroup, Checkbox
+  Form, NavBar, Stepper, CheckboxGroup, Checkbox, Sticky
 } from 'vant';
 import 'vant/lib/index.css';
 
 Vue.use(Button).use(Field).use(CellGroup).use(Row).use(Col).use(Grid).use(GridItem).use(Image);
 Vue.use(Tabbar).use(TabbarItem).use(Cell).use(Picker).use(Popup).use(Form).use(NavBar).use(Stepper).use(CheckboxGroup)
-    .use(Checkbox)
+    .use(Checkbox).use(Sticky)
 Vue.config.productionTip = false
 
 new Vue({
