@@ -12,4 +12,6 @@ export const testApi = () => http.get('https://movie.querydata.org/api?id=334109
 
 export const getShopList = data => http.get("/api/getShops", data);
 
+export const gameReady = data => http.get("/api/readyGame", data);
+
 
