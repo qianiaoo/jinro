@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Me from "../views/Setting";
+import Setting from "../views/Setting";
+import JinroNormal from "../views/JinroNormal";
 
 Vue.use(VueRouter)
 
@@ -14,7 +15,12 @@ const routes = [
   {
     path: '/setting',
     name: 'setting',
-    component: Me
+    component: Setting
+  },
+  {
+    path: '/jinronormal',
+    name: 'JinroNormal',
+    component: JinroNormal
   },
 
   {
