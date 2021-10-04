@@ -33,7 +33,7 @@
           <van-button size="large" type="info" @click="showPicker=true">優先</van-button>
         </van-col>
         <van-col span="8">
-          <van-button size="large" :type="readyBtnType" @click="readyGame">準備</van-button>
+          <van-button size="large" :type="readyBtnType" @click="readyGame">{{readyBtnText}}</van-button>
         </van-col>
       </van-row>
     </div>
@@ -53,6 +53,7 @@
 
 <script>
 import {Toast} from "vant";
+import {getShopList} from "@/utils/api";
 
 export default {
   name: "JinroNormal",
@@ -154,13 +155,16 @@ export default {
       this.firstJob = val;
       console.log(val)
     },
-    readyGame() {
+    async readyGame() {
       // console.log()
       if (this.readyBtnType === 'danger') {
         this.readyBtnType = 'primary'
+        this.readyBtnText = '準備';
       } else {
         this.readyBtnType = 'danger';
-        this.readyBtnText = '準備'
+        this.readyBtnText = '準備完了'
+        const shopData = await getShopList({offset: 0, limit: 100})
+        console.log(shopData);
       }
     },
   },
