@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Setting from "../views/Setting";
 import JinroNormal from "../views/JinroNormal";
+import Rooms from "@/views/Rooms";
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/jinronormal',
     name: 'JinroNormal',
     component: JinroNormal
+  },
+  {
+    path: '/rooms',
+    name: 'Rooms',
+    component: Rooms,
   },
 
   {

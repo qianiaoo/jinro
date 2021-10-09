@@ -16,13 +16,16 @@ import {
   TabbarItem,
   Picker,
   Popup,
-  Form, NavBar, Stepper, CheckboxGroup, Checkbox, Sticky
+  Form, NavBar, Stepper, CheckboxGroup, Checkbox, Sticky, Uploader
 } from 'vant';
 import 'vant/lib/index.css';
+import Cookies from 'js-cookie'
+
+Vue.use(Cookies)
 
 Vue.use(Button).use(Field).use(CellGroup).use(Row).use(Col).use(Grid).use(GridItem).use(Image);
 Vue.use(Tabbar).use(TabbarItem).use(Cell).use(Picker).use(Popup).use(Form).use(NavBar).use(Stepper).use(CheckboxGroup)
-    .use(Checkbox).use(Sticky)
+    .use(Checkbox).use(Sticky).use(Uploader)
 Vue.config.productionTip = false
 
 new Vue({
