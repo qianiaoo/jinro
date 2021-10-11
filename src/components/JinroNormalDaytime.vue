@@ -1,7 +1,7 @@
 <template>
   <div>
     <van-row type="flex" style="padding-top: 20px" align="center" justify="center">
-      <van-col ><span v-show="deadPeopleChild" style="font-size: 110%;" >昨日 {{deadPeopleChild}}が死んだ</span></van-col>
+      <van-col ><span v-show="deadPeopleChild.length !== 0" style="font-size: 110%;" >昨日 {{outDeadList}}が死んだ</span></van-col>
     </van-row>
     <van-row type="flex" style="padding-top: 30px;padding-bottom: 40px; font-size: 130%" align="center" justify="center">
       <van-col v-show="exilePlayer" ><span>{{exilePlayer}}を処刑しますか</span></van-col>
@@ -24,6 +24,13 @@ export default {
     }
   },
   methods: {
+    outDeadList() {
+      let res = '';
+      this.deadPeopleChild.forEach(i=>{
+        res += i;
+      })
+      return res
+    },
     async exile() {
       if (this.exilePlayer) {
         console.log("処刑する！");

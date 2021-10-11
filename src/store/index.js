@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    isKickMode: false,
     name: '',
     icon_url: '',
   },
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     },
     set_icon_url(state, new_icon_url) {
       state.icon_url = new_icon_url;
+    },
+    set_isKickMode(state, new_icon_url) {
+      state.isKickMode = new_icon_url;
     }
   },
   actions: {

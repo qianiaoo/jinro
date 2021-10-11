@@ -27,7 +27,8 @@
 
 <script>
 import {joinSakura} from "@/utils/api";
-
+import Cookies from "js-cookie";
+import {Toast} from "vant";
 export default {
   name: "Rooms",
   data() {
@@ -44,12 +45,18 @@ export default {
 
     },
     async joinSakura() {
-      const res = await joinSakura();
-      if (res.status === 200) {
-        this.$router.push({path: '/JinroNormal', query: {gameId: res.data.gameId, gameStatus: res.data.gameStatus}})
-        console.log(res.data.gameStatus)
-        console.log(res.data.gameId)
+      if (Cookies.get('id')) {
+        const res = await joinSakura();
+        if (res.status === 200) {
+          this.$router.push({path: '/JinroNormal', query: {gameId: res.data.gameId, gameStatus: res.data.gameStatus}})
+          console.log(res.data.gameStatus)
+          console.log(res.data.gameId)
+        }
+      } else {
+        Toast("先に名前を設定してください。")
       }
+
+
     },
 
   }

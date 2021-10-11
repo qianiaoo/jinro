@@ -14,9 +14,12 @@
           />
 
         </div>
-        <van-uploader :before-read="beforeRead" :after-read="afterRead">
-          <van-button  type="primary">アイコン設定</van-button>
-        </van-uploader>
+        <div v-if="icon_url">
+          <van-uploader :before-read="beforeRead" :after-read="afterRead">
+            <van-button  type="primary">アイコン設定</van-button>
+          </van-uploader>
+        </div>
+
 
       </van-cell-group>
       <div style="margin: 16px;">
